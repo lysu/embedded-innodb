@@ -162,7 +162,7 @@ SET(CMAKE_EXTRA_INCLUDE_FILES pthread.h)
 CHECK_TYPE_SIZE(pthread_t SIZEOF_PTHREAD_T)
 SET(CMAKE_EXTRA_INCLUDE_FILES)
 
-INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/include)
+INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}/include)
 
 SET(INNODB_SOURCES  btr/btr0btr.cc btr/btr0cur.cc btr/btr0pcur.cc
       buf/buf0buf.cc
@@ -236,7 +236,7 @@ SUBDIRS(tests)
 
 CONFIGURE_FILE(
   ${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.cmake
-  ${CMAKE_CURRENT_BINARY_DIR}/include/ib0config.h)
+  ${CMAKE_BINARY_DIR}/include/ib0config.h)
 
 # List all install files and use CPack for packaging and installation
 SET(CMAKE_INSTALL_PREFIX package)
